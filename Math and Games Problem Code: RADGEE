@@ -1,0 +1,78 @@
+#include<bits/stdc++.h>
+#include<string>
+#include<iostream>
+#include<algorithm>
+#include<climits>
+#include<map>
+#include<stack>
+#include<bitset>
+#define ll unsigned long long int
+#define BOOSTER std::ios_base::sync_with_stdio(NULL);cin.tie(0);cout.tie(0);
+#define REPEAT int t;cin>>t;while(t--)
+using namespace std;
+int main()
+{
+    BOOSTER
+    REPEAT{
+    ll n,m,no,i,j,g=0,r=0;
+    vector<int>a;
+    vector<int>b;
+    vector<int>extra;
+    cin>>n>>m;
+    for(i=0;i<n;i++)
+    {
+        cin>>no;
+        a.push_back(no);
+    }
+    for(i=0;i<n;i++)
+    {
+        cin>>no;
+        b.push_back(no);
+    }
+    for(i=0;i<m;i++)
+    {
+        cin>>no;
+        extra.push_back(no);
+    }
+    j=-1;
+    for(i=0;i<m/2;i++)
+    {
+        if(b[i]>a[i]){
+            j++;
+            b.push_back(extra[j]);
+            j++;
+            a.push_back(extra[j]);
+        }else{
+            j++;
+            a.push_back(extra[j]);
+            j++;
+            b.push_back(extra[j]);
+        }
+    }
+    for(i=0;i<a.size();i++)
+    {
+        if(a[i]>b[i])
+        {
+            r++;
+        }
+    }
+    for(i=0;i<b.size();i++)
+    {
+        if(b[i]>a[i])
+        {
+            g++;
+        }
+    }
+    if(g>r){
+        cout<<"Geethakoomaree wins"<<endl;
+    }
+    else if(r>g){
+        cout<<"Radhesh wins"<<endl;
+    }else{
+        cout<<"Tie"<<endl;
+    }
+  
+    
+    
+    }   
+}
